@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Result Page</title>
+
+</head>
+<body>
+<header style = "background-color: #15ffaa; text-align: center; ">
+  <strong id="cityName" style = "font-size: 30px;"></strong><br/>
+  <a href = "/form" class = "btn btn-link">Return to weather search Page</a>
+</header>
+<h2>Weather Summary</h2>
+<div style="width: 100%; alignment: center; text-align: center; ">
+  <table class="table" data-role="table">
+    <thead style=" background-color: darkgrey ;">
+    <tr>
+      <th style="width: 30%">Date</th>
+      <th style="width: 20%">Min Temp</th>
+      <th style="width: 20%">Max Temp</th>
+      <th style="width: 50%">Message</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td id="day1_date" ></td>
+      <td id="day1_min_temp" ></td>
+      <td id="day1_max_temp" ></td>
+      <td id="day1_message" ></td>
+    </tr>
+    <tr>
+      <td id="day2_date" ></td>
+      <td id="day2_min_temp" ></td>
+      <td id="day2_max_temp" ></td>
+      <td id="day2_message" ></td>
+    </tr>
+    <tr>
+      <td id="day3_date" ></td>
+      <td id="day3_min_temp" ></td>
+      <td id="day3_max_temp" ></td>
+      <td id="day3_message" ></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+<script th:inline="javascript">
+  /*<![CDATA[*/
+
+  var mess = /*[[${city}]]*/ 'default';
+  var day1 = /*[[${day2}]]*/ 'default';
+  var day2 = /*[[${day3}]]*/ 'default';
+  var day3 = /*[[${day2}]]*/ 'default';
+  // console.log("-------->>>", day1);
+  document.getElementById("cityName").innerHTML=mess + "'s three days weather forecast";
+  document.getElementById("day1_date").innerText =  day1["date"];
+  document.getElementById("day1_min_temp").innerText =  day1["temp_min"];
+  document.getElementById("day1_max_temp").innerText =  day1["temp_max"];
+  document.getElementById("day1_message").innerText =  day1["message"];
+  document.getElementById("day2_date").innerText =  day2["date"];
+  document.getElementById("day2_min_temp").innerText =  day2["temp_min"];
+  document.getElementById("day2_max_temp").innerText =  day2["temp_max"];
+  document.getElementById("day2_message").innerText =  day2["message"];
+  document.getElementById("day3_date").innerText =  day3["date"];
+  document.getElementById("day3_min_temp").innerText =  day3["temp_min"];
+  document.getElementById("day3_max_temp").innerText =  day3["temp_max"];
+  document.getElementById("day3_message").innerText =  day3["message"];
+
+  /*]]>*/
+</script>
+</html>
